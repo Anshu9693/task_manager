@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    }
+  ],
+  "env": {
+    "PORT": "8080",
+    "DB_URL": "mongodb+srv://anshukumarsah8585:Anshu123@cluster0.qvcmg7v.mongodb.net/Task_Manager",
+    "JWT_SECRET": "Task_Manager"
+  }
+}
