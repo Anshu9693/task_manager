@@ -13,7 +13,7 @@ const TaskManager = () => {
   const [taskname, setTaskname] = useState("");
   const [taskList, setTaskList] = useState([]);
   const [copytaskList, setCopyTaskList] = useState([]);
-  const [isDone, setisDone] = useState(false);
+  const [isDone] = useState(false);
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editingTaskName, setEditingTaskName] = useState("");
 
