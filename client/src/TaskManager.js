@@ -20,7 +20,7 @@ const TaskManager = () => {
   const fetchAllTask = async (e) => {
     // e.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:8080/task/fetch`);
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_PORT}/task/fetch`);
       if (response.status === 200 || response.status === 201) {
         setTaskList(response.data.data);
         setCopyTaskList(response.data.data);
@@ -39,7 +39,7 @@ const TaskManager = () => {
     };
     try {
       const response = await axios.post(
-        `http://localhost:8080/task/create`,
+        `${process.env.REACT_APP_BACKEND_PORT}/task/create`,
         newTask
       );
       if (response.status === 200 || response.status === 201) {
@@ -59,7 +59,7 @@ const TaskManager = () => {
   const handleDeleteTask = async (taskId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/task/${taskId}`
+        `${process.env.REACT_APP_BACKEND_PORT}/task/${taskId}`
       );
       if (response.status === 200 || response.status === 201) {
         toast(response.data.message);
@@ -73,7 +73,7 @@ const TaskManager = () => {
   const handleUpdateTask = async (taskId, updatedTask) => {
     try {
       const response = await axios.put(
-        `http://localhost:8080/task/${taskId}`,
+        `${process.env.REACT_APP_BACKEND_PORT}/task/${taskId}`,
         updatedTask
       );
       if (response.status === 200 || response.status === 201) {
@@ -92,7 +92,7 @@ const TaskManager = () => {
       const task = taskList.find((task) => task._id === taskId);
       const updatedTask = { ...task, isDone: !task.isDone };
       const response = await axios.put(
-        `http://localhost:8080/task/${taskId}`,
+        `${process.env.REACT_APP_BACKEND_PORT}/task/${taskId}`,
         updatedTask
       );
       if (response.status === 200 || response.status === 201) {

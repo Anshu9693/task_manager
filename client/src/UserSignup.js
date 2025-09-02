@@ -21,7 +21,7 @@ const [ email, setEmail ] = useState('')
       lname
     };
     try {
-      const response = await axios.post("http://localhost:8080/user/register", newUser);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_PORT}/user/register`, newUser);
       if (response.status === 200 || response.status === 201) {
         const data = response.data;
         localStorage.setItem('token', data.token);
